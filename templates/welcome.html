@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/static/stylesheets/main.css" />
+
+    <!-- The welcome struct (shown in the main.go code) is received within the HTML and we just need to use the . operator and retrieve the information we want -->
+    <title>Welcome {{.Name}}</title>
+    <button onclick="showDetails(`pk`)">Pakistan</button>
+    <div id="showPk">Cases in Pakistan: 4004</div>
+
+    <button onclick="showDetails(`sk`)">South Korea</button>
+    <div id="showSK">Cases in S.K: 10,331</div>
+
+    <button onclick="showDetails(`fr`)">France</button>
+    <div id="showFr">Cases in France: 98,010</div>
+
+    <script>
+      showDetails = (country) => {
+        let x;
+        if (country === "pk") x = document.getElementById("showPk");
+        if (country === "sk") x = document.getElementById("showSK");
+        if (country === "fr") x = document.getElementById("showFr");
+        x.style.display === "none"
+          ? (x.style.display = "block")
+          : (x.style.display = "none");
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="welcome center">
+      Welcome, {{.Name}}, Cases recorded on 2020/07/04 at 16:20
+    </div>
+  </body>
+</html>
